@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jason Persinger Resume</title>
+  <link rel="canonical" href="https://jasonpersinger.cv">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --navy:       #1a2744;
+      --navy-mid:   #243459;
+      --gold:       #c8a94a;
+      --gold-muted: rgba(200, 169, 74, 0.35);
+      --white:      #ffffff;
+      --off-white:  #f9f8f5;
+      --text:       #1c1c1c;
+      --text-muted: #555555;
+      --sidebar-w:  31%;
+    }
+
+    @page {
+      size: letter;
+      margin: 0;
+    }
+
+    body {
+      font-family: 'IBM Plex Sans', sans-serif;
+      background: var(--white);
+      color: var(--text);
+      font-size: 9pt;
+      line-height: 1.55;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .page {
+      width: 8.5in;
+      min-height: 11in;
+      display: flex;
+      margin: 0 auto;
+    }
+
+    /* ─── SIDEBAR ─────────────────────────────── */
+    .sidebar {
+      width: var(--sidebar-w);
+      background: var(--navy);
+      color: var(--white);
+      padding: 2.2rem 1.4rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+    }
+
+    .name-block h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.05rem;
+      font-weight: 700;
+      line-height: 1.08;
+      color: var(--white);
+      letter-spacing: -0.02em;
+    }
+
+    .name-block .role-tag {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 6.2pt;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      margin-top: 0.55rem;
+    }
+
+    /* contact */
+    .contact-block {
+      display: flex;
+      flex-direction: column;
+      gap: 0.38rem;
+      padding-top: 0.2rem;
+      border-top: 1px solid var(--gold-muted);
+    }
+
+    .contact-item {
+      font-size: 7.8pt;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.45;
+    }
+
+    /* sidebar sections */
+    .sidebar-section {}
+
+    .sidebar-section h3 {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 6pt;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.65rem;
+      padding-bottom: 0.35rem;
+      border-bottom: 1px solid var(--gold-muted);
+    }
+
+    /* skill pills */
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.22rem;
+    }
+
+    .skill-pill {
+      display: inline-block;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.13);
+      color: rgba(255,255,255,0.85);
+      font-size: 7pt;
+      padding: 0.18rem 0.45rem;
+      border-radius: 2px;
+      line-height: 1.4;
+    }
+
+    /* tech skills list */
+    .tech-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .tech-item {
+      font-size: 7.8pt;
+      color: rgba(255,255,255,0.75);
+      padding: 0.25rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      line-height: 1.3;
+    }
+
+    .tech-item:first-child {
+      color: rgba(255, 255, 255, 0.95);
+    }
+
+    /* education */
+    .edu-entry + .edu-entry { margin-top: 0.75rem; }
+
+    .edu-degree {
+      font-size: 8pt;
+      color: var(--white);
+      font-weight: 500;
+      line-height: 1.35;
+    }
+
+    .edu-school {
+      font-size: 7.2pt;
+      color: rgba(255,255,255,0.6);
+      margin-top: 0.1rem;
+    }
+
+    /* ─── MAIN CONTENT ────────────────────────── */
+    .main {
+      flex: 1;
+      padding: 2.2rem 1.9rem 2rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+      background: var(--off-white);
+    }
+
+    /* summary */
+    .summary {
+      border-left: 3px solid var(--gold);
+      padding: 0.5rem 0 0.5rem 1rem;
+      color: var(--text-muted);
+      font-size: 8.6pt;
+      line-height: 1.68;
+      font-weight: 300;
+      font-style: italic;
+    }
+
+    /* section */
+    .section {}
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .section-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 13pt;
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: -0.015em;
+      white-space: nowrap;
+    }
+
+    .section-rule {
+      flex: 1;
+      height: 1.5px;
+      background: linear-gradient(to right, var(--navy), transparent);
+      opacity: 0.2;
+    }
+
+    /* job entries */
+    .job { margin-bottom: 1.05rem; }
+    .job:last-child { margin-bottom: 0; }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.5rem;
+    }
+
+    .job-title-line {
+      display: flex;
+      align-items: baseline;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+
+    .job-title {
+      font-weight: 600;
+      font-size: 9.2pt;
+      color: var(--text);
+    }
+
+    .job-company {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 8pt;
+      color: var(--gold);
+      font-weight: 500;
+    }
+
+    .job-dates {
+      font-size: 7.5pt;
+      color: var(--text-muted);
+      white-space: nowrap;
+      font-style: italic;
+      flex-shrink: 0;
+    }
+
+    .job-location {
+      font-size: 7.2pt;
+      color: var(--text-muted);
+      margin-top: 0.08rem;
+      margin-bottom: 0.4rem;
+    }
+
+    /* bullet points */
+    ul.bullets {
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.28rem;
+    }
+
+    ul.bullets li {
+      font-size: 8.3pt;
+      color: #3a3a3a;
+      line-height: 1.52;
+      list-style: none;
+      position: relative;
+      padding-left: 0.85rem;
+    }
+
+    ul.bullets li::before {
+      content: '▸';
+      color: var(--gold);
+      position: absolute;
+      left: 0;
+      top: 1px;
+      font-size: 6.5pt;
+    }
+
+    /* divider between jobs */
+    .job-divider {
+      height: 1px;
+      background: rgba(0,0,0,0.07);
+      margin: 0.85rem 0 0.85rem 0;
+    }
+
+    .download-btn {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      background: var(--navy);
+      color: var(--gold);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 7.5pt;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.6rem 1.1rem;
+      border: 1px solid var(--gold-muted);
+      border-radius: 2px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+      transition: background 0.15s, color 0.15s;
+      z-index: 100;
+    }
+
+    .download-btn:hover {
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    @media print {
+      body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .page { width: 100%; }
+      .download-btn { display: none; }
+    }
+  </style>
+</head>
+<body>
+<a class="download-btn" href="PersingerJasonResume.pdf" download>Download PDF</a>
+<div class="page">
+
+  <!-- ══════════════ SIDEBAR ══════════════ -->
+  <aside class="sidebar">
+
+    <div class="name-block">
+      <h1>Jason<br>Persinger</h1>
+      <div class="role-tag">Technical Support &amp; AI Products</div>
+    </div>
+
+    <div class="contact-block">
+      <div class="contact-item">709 Marshall Ave SW #A<br>Roanoke, VA 24016</div>
+      <div class="contact-item">(540) 394-8222</div>
+      <div class="contact-item">jason.persinger@gmail.com</div>
+    </div>
+
+    <div class="sidebar-section">
+      <h3>Core Competencies</h3>
+      <div class="skills-grid">
+        <span class="skill-pill">Technical Support</span>
+        <span class="skill-pill">Root Cause Analysis</span>
+        <span class="skill-pill">Escalation Mgmt</span>
+        <span class="skill-pill">SaaS Platforms</span>
+        <span class="skill-pill">API Troubleshooting</span>
+        <span class="skill-pill">Knowledge Base Dev</span>
+        <span class="skill-pill">Technical Docs</span>
+        <span class="skill-pill">User Empathy</span>
+        <span class="skill-pill">Change Management</span>
+        <span class="skill-pill">Cross-Functional Collab</span>
+        <span class="skill-pill">Process Improvement</span>
+        <span class="skill-pill">Salesforce &amp; JIRA</span>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <h3>Technical Skills</h3>
+      <div class="tech-list">
+        <div class="tech-item">LLM Applications &amp; AI Products</div>
+        <div class="tech-item">Linux / Command Line</div>
+        <div class="tech-item">Bash Scripting</div>
+        <div class="tech-item">Git &amp; Version Control</div>
+        <div class="tech-item">SSO / SAML / OAuth</div>
+        <div class="tech-item">SQL (Basic)</div>
+        <div class="tech-item">Python (Basic)</div>
+        <div class="tech-item">JavaScript (Basic)</div>
+        <div class="tech-item">Networking Fundamentals</div>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <h3>Education</h3>
+      <div class="edu-entry">
+        <div class="edu-degree">B.S. English Literature</div>
+        <div class="edu-school">Radford University, VA &middot; 2011</div>
+      </div>
+      <div class="edu-entry">
+        <div class="edu-degree">Google IT Support</div>
+        <div class="edu-school">Professional Certificate</div>
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- ══════════════ MAIN ══════════════ -->
+  <main class="main">
+
+    <!-- Summary -->
+    <div class="summary">
+      Technical product support specialist with 5+ years resolving complex software issues, debugging enterprise workflows, and delivering high-touch support across diverse user personas. Proven ability to operate in fast-paced, ambiguous environments with strong user empathy and clear written communication. Experienced in building knowledge bases, training resources, and support processes that scale. Deeply curious about AI products, energized by tracking down root causes and improving the user experience at every layer.
+    </div>
+
+    <!-- Experience -->
+    <div class="section">
+      <div class="section-header">
+        <h2>Professional Experience</h2>
+        <div class="section-rule"></div>
+      </div>
+
+      <!-- Pixel Patcher -->
+      <div class="job">
+        <div class="job-header">
+          <div class="job-title-line">
+            <span class="job-title">Owner &amp; Operator</span>
+            <span class="job-company">· Pixel Patcher</span>
+          </div>
+          <div class="job-dates">2025 – Present</div>
+        </div>
+        <div class="job-location">Roanoke, VA &nbsp;&middot;&nbsp; Mobile PC Repair &amp; IT Consulting</div>
+        <ul class="bullets">
+          <li>Founded and operate a mobile PC repair and IT consulting business serving residential and small business clients, managing all aspects of service delivery, client acquisition, scheduling, and business development</li>
+          <li>Build and maintain long-term client relationships through high-touch, in-home support, adapting communication to each client's technical proficiency and identifying proactive solutions beyond the immediate issue</li>
+          <li>Develop service offerings, pricing strategy, and operational processes from the ground up, continuously iterating based on client feedback and evolving market demand</li>
+          <li>Scope technology needs for small business clients, delivering tailored recommendations across hardware, software, security, and workflow optimization</li>
+          <li>Provide end-user education and consulting sessions that drive client self-sufficiency, reduce repeat issues, and build lasting trust</li>
+        </ul>
+      </div>
+
+      <div class="job-divider"></div>
+
+      <!-- AbsenceSoft -->
+      <div class="job">
+        <div class="job-header">
+          <div class="job-title-line">
+            <span class="job-title">Software Support Analyst</span>
+            <span class="job-company">· AbsenceSoft</span>
+          </div>
+          <div class="job-dates">Jan 2023 – Present</div>
+        </div>
+        <div class="job-location">Denver, CO</div>
+        <ul class="bullets">
+          <li>Investigate and resolve complex support cases for enterprise leave management software, performing root cause analysis on system workflows, configuration issues, and integration failures across diverse client environments</li>
+          <li>Provide high-touch, empathetic support to HR administrators, executives, and end users, adapting communication style to technical proficiency and urgency level</li>
+          <li>Create comprehensive technical documentation including user guides, troubleshooting runbooks, and workflow diagrams that reduce repeat contacts and accelerate onboarding</li>
+          <li>Partner with engineering and product teams to diagnose, escalate, and resolve user issues via Salesforce and JIRA, consistently meeting SLA targets</li>
+          <li>Identify patterns in support cases to proactively recommend process improvements and product enhancements, driving down contact rates and increasing satisfaction</li>
+          <li>Scope team knowledge gaps and build scalable training resources that grow with evolving product features</li>
+        </ul>
+      </div>
+
+      <div class="job-divider"></div>
+
+      <!-- Binance.US -->
+      <div class="job">
+        <div class="job-header">
+          <div class="job-title-line">
+            <span class="job-title">Support Team Lead</span>
+            <span class="job-company">· Binance.US</span>
+          </div>
+          <div class="job-dates">Jul 2021 – Dec 2022</div>
+        </div>
+        <div class="job-location">San Francisco, CA</div>
+        <ul class="bullets">
+          <li>Led and coached a team of support specialists handling escalated and high-urgency cases on a complex cryptocurrency platform, driving measurable improvements in CSAT and resolution time</li>
+          <li>Designed and delivered comprehensive onboarding and ongoing technical training programs, including compliance training tailored to varied learning styles and proficiency levels</li>
+          <li>Served as change management champion during platform updates and policy changes, communicating business objectives clearly and gaining stakeholder alignment across teams</li>
+          <li>Built the foundational knowledge base and support resources that became the organization's primary onboarding and reference tool, systematically closing knowledge gaps</li>
+          <li>Managed on-call responsibilities for high-urgency user issues with extreme ownership and rapid context-switching</li>
+        </ul>
+      </div>
+
+      <div class="job-divider"></div>
+
+      <!-- PowerSchool -->
+      <div class="job">
+        <div class="job-header">
+          <div class="job-title-line">
+            <span class="job-title">Implementation Project Manager</span>
+            <span class="job-company">· PowerSchool</span>
+          </div>
+          <div class="job-dates">Dec 2019 – Jun 2021</div>
+        </div>
+        <div class="job-location">Roanoke, VA</div>
+        <ul class="bullets">
+          <li>Led end-to-end software implementation projects for K-12 school districts, including needs assessment, configuration, training delivery, and post-implementation support</li>
+          <li>Troubleshot integration and configuration issues across complex SaaS environments, partnering with engineering teams to resolve technical blockers for clients</li>
+          <li>Conducted user training for diverse audiences including administrators, teachers, and support staff, adapting to technical comfort level and organizational context</li>
+          <li>Managed multiple concurrent implementations in dynamic, shifting-priority environments, demonstrating the ability to prioritize critically and adapt quickly</li>
+          <li>Developed customized support and training solutions aligned with client goals, evaluating outcomes and iterating on approach to improve satisfaction</li>
+        </ul>
+      </div>
+
+    </div>
+  </main>
+
+</div>
+</body>
+</html>
