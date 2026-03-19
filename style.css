@@ -319,9 +319,9 @@ h2 + p {
 }
 
 .stack span {
-  border: 1px solid rgba(74, 222, 128, 0.2);
-  background: rgba(74, 222, 128, 0.05);
-  color: var(--green);
+  border: 1px solid var(--accent-soft);
+  background: var(--accent-soft);
+  color: var(--ink);
   font-family: var(--serif);
   font-size: 0.6rem;
   padding: 0.18rem 0.34rem;
@@ -334,6 +334,79 @@ h2 + p {
   font-size: 0.6rem;
   font-style: italic;
   margin-top: 0.2rem;
+}
+
+.sidebar {
+  display: grid;
+  gap: 0.12in;
+}
+
+.panel {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  padding: 0.12in;
+  break-inside: avoid;
+}
+
+.minor-title {
+  color: var(--accent);
+  font-size: 0.58rem;
+  margin-bottom: 0.08in;
+  font-family: var(--serif);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.24rem;
+}
+
+.chip {
+  border: 1px solid var(--accent-soft);
+  background: var(--accent-soft);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 0.6rem;
+  padding: 0.18rem 0.34rem;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.list {
+  display: grid;
+  gap: 0.3rem;
+  color: var(--muted);
+  font-size: 0.71rem;
+}
+
+.list strong {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.edu-item + .edu-item {
+  margin-top: 0.08in;
+  padding-top: 0.08in;
+  border-top: 1px solid var(--line);
+}
+
+.skill-group {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.skill-group + .skill-group {
+  margin-top: 0.6rem;
+}
+
+.skill-label {
+  font-family: var(--serif);
+  font-size: 0.55rem;
+  color: var(--soft);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
 }
 
 @media print {

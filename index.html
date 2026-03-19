@@ -455,9 +455,9 @@
 
     .stack span,
     .chip {
-      border: 1px solid rgba(74, 222, 128, 0.2);
-      background: rgba(74, 222, 128, 0.05);
-      color: var(--green);
+      border: 1px solid var(--accent-soft);
+      background: var(--accent-soft);
+      color: var(--ink);
       font-size: 0.6rem;
       padding: 0.18rem 0.34rem;
       line-height: 1;
@@ -476,7 +476,7 @@
 
     .panel {
       border: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.2);
+      background: var(--surface);
       padding: 0.12in;
       break-inside: avoid;
     }
@@ -508,7 +508,24 @@
     .edu-item + .edu-item {
       margin-top: 0.08in;
       padding-top: 0.08in;
-      border-top: 1px solid rgba(36, 33, 29, 0.08);
+      border-top: 1px solid var(--line);
+    }
+
+    .skill-group {
+      display: grid;
+      gap: 0.25rem;
+    }
+
+    .skill-group + .skill-group {
+      margin-top: 0.6rem;
+    }
+
+    .skill-label {
+      font-family: var(--serif);
+      font-size: 0.55rem;
+      color: var(--soft);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
     }
 
     .footer {
@@ -869,10 +886,34 @@
 
         <section class="panel">
           <div class="minor-title">Technical Skills</div>
-          <div class="list">
-            <div><strong>Primary:</strong> LLM Applications &amp; AI Products, Linux / Command Line, Bash Scripting, Git</div>
-            <div><strong>Identity:</strong> SSO, SAML, OAuth</div>
-            <div><strong>Working knowledge:</strong> SQL, Python, JavaScript, Networking Fundamentals</div>
+          <div class="skill-group">
+            <div class="skill-label">Primary</div>
+            <div class="chips">
+              <span class="chip">LLM Applications</span>
+              <span class="chip">AI Products</span>
+              <span class="chip">Linux / CLI</span>
+              <span class="chip">Bash Scripting</span>
+              <span class="chip">Git</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-label">Identity</div>
+            <div class="chips">
+              <span class="chip">SSO</span>
+              <span class="chip">SAML</span>
+              <span class="chip">OAuth</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-label">Tools &amp; Foundational</div>
+            <div class="chips">
+              <span class="chip">SQL</span>
+              <span class="chip">Python</span>
+              <span class="chip">JavaScript</span>
+              <span class="chip">Networking</span>
+            </div>
+          </div>
+          <div class="list" style="margin-top: 0.8rem; border-top: 1px solid var(--line); padding-top: 0.6rem;">
             <div><strong>Best fit:</strong> technical support, implementation, operations, support systems, product-adjacent enablement</div>
             <div><strong>Style:</strong> direct communicator, documentation-minded, calm in ambiguous support work</div>
           </div>
