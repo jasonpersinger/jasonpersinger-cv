@@ -393,11 +393,24 @@
 
     .project {
       display: grid;
-      gap: 0.35rem;
+      gap: 0.75rem;
       border: 1px solid var(--line);
       padding: 0.12in;
-      background: rgba(255, 255, 255, 0.24);
+      background: rgba(255, 255, 255, 0.03);
       break-inside: avoid;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .project-header {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
     }
 
     .project-kicker {
@@ -406,14 +419,32 @@
     }
 
     .project h3 {
-      font-size: 0.88rem;
+      font-size: 0.92rem;
       line-height: 1.1;
+    }
+
+    .project-body {
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .project-section {
+      display: grid;
+      gap: 0.3rem;
+    }
+
+    .project-label {
+      font-family: var(--serif);
+      font-size: 0.55rem;
+      color: var(--soft);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
     }
 
     .project p {
       color: var(--muted);
-      font-size: 0.71rem;
-      line-height: 1.45;
+      font-size: 0.72rem;
+      line-height: 1.5;
     }
 
     .stack {
@@ -424,8 +455,8 @@
 
     .stack span,
     .chip {
-      border: 1px solid rgba(62, 106, 74, 0.24);
-      background: rgba(62, 106, 74, 0.06);
+      border: 1px solid rgba(74, 222, 128, 0.2);
+      background: rgba(74, 222, 128, 0.05);
       color: var(--green);
       font-size: 0.6rem;
       padding: 0.18rem 0.34rem;
@@ -435,6 +466,7 @@
     .project-note {
       color: var(--soft);
       font-size: 0.6rem;
+      font-style: italic;
     }
 
     .sidebar {
@@ -632,6 +664,8 @@
 
       .project {
         gap: 0.22rem;
+        transform: none !important;
+        box-shadow: none !important;
       }
 
       .sheet::before,
@@ -750,28 +784,54 @@
           <div class="section-title">Selected Projects</div>
           <div class="projects">
             <article class="project">
-              <div class="project-kicker">Community platform</div>
-              <h3><a href="https://holler.works" target="_blank" rel="noreferrer">holler.works</a></h3>
-              <p>Moderation-first job and skills board for Appalachia&apos;s tech community. Users can post needs or offers without an account, and every listing requires compensation.</p>
-              <div class="stack">
-                <span>Vanilla JS</span>
-                <span>Firestore</span>
-                <span>Cloud Functions</span>
-                <span>Netlify</span>
+              <div class="project-header">
+                <div class="project-kicker">Community platform</div>
+                <h3><a href="https://holler.works" target="_blank" rel="noreferrer">holler.works</a></h3>
               </div>
+              
+              <div class="project-body">
+                <div class="project-section">
+                  <div class="project-label">System Overview</div>
+                  <p>Moderation-first job and skills board for Appalachia&apos;s tech community. Users can post needs or offers without an account, and every listing requires compensation.</p>
+                </div>
+
+                <div class="project-section">
+                  <div class="project-label">Stack</div>
+                  <div class="stack">
+                    <span>Vanilla JS</span>
+                    <span>Firestore</span>
+                    <span>Cloud Functions</span>
+                    <span>Netlify</span>
+                  </div>
+                </div>
+              </div>
+              
               <div class="project-note">Built solo / no sign-up / no npm / no build step</div>
             </article>
 
             <article class="project">
-              <div class="project-kicker">Business operations</div>
-              <h3><a href="https://pixelpatcher.com" target="_blank" rel="noreferrer">pixelpatcher.com</a></h3>
-              <p>Full customer journey for a solo PC repair business, including marketing, booking, remote support, and internal CRM-style tracking for jobs, invoices, and tax estimates.</p>
-              <div class="stack">
-                <span>HTML / CSS / JS</span>
-                <span>Firebase</span>
-                <span>Google Places API</span>
-                <span>Netlify</span>
+              <div class="project-header">
+                <div class="project-kicker">Business operations</div>
+                <h3><a href="https://pixelpatcher.com" target="_blank" rel="noreferrer">pixelpatcher.com</a></h3>
               </div>
+              
+              <div class="project-body">
+                <div class="project-section">
+                  <div class="project-label">System Overview</div>
+                  <p>Full customer journey for a solo PC repair business, including marketing, booking, remote support, and internal CRM-style tracking for jobs, invoices, and tax estimates.</p>
+                </div>
+
+                <div class="project-section">
+                  <div class="project-label">Stack</div>
+                  <div class="stack">
+                    <span>HTML / CSS / JS</span>
+                    <span>Firebase</span>
+                    <span>Google Places API</span>
+                    <span>Netlify</span>
+                  </div>
+                </div>
+              </div>
+              
               <div class="project-note">Built and maintained by the same person running the business</div>
             </article>
           </div>
