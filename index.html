@@ -3,731 +3,821 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jason Persinger // CV</title>
+  <title>Jason Persinger | Resume</title>
   <link rel="canonical" href="https://jasonpersinger.cv">
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
   <style>
-    /* ══════════════════════════════════════════════
-       RESET + ROOT
-    ══════════════════════════════════════════════ */
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-    :root {
-      --orange:      #f28927;
-      --green:       #39803e;
-      --black:       #0e0e0e;
-      --grey:        #b8b8b8;
-      --light:       #dedede;
-      --orange-line: rgba(242,137,39,0.3);
-      --mono: 'IBM Plex Mono', 'Courier New', Courier, monospace;
+    @font-face {
+      font-family: "MartianMono";
+      src: url("./assets/fonts/MartianMonoNerdFontPropo-CondensedRegular.ttf") format("truetype");
+      font-weight: 400;
+      font-style: normal;
     }
 
-    @page { size: letter; margin: 0.45in 0.5in; }
+    @font-face {
+      font-family: "MartianMono";
+      src: url("./assets/fonts/MartianMonoNerdFontPropo-CondensedMedium.ttf") format("truetype");
+      font-weight: 500;
+      font-style: normal;
+    }
 
-    html { scroll-behavior: smooth; }
+    @font-face {
+      font-family: "MartianMono";
+      src: url("./assets/fonts/MartianMonoNerdFontPropo-CondensedBold.ttf") format("truetype");
+      font-weight: 700;
+      font-style: normal;
+    }
 
-    body {
-      font-family: var(--mono);
-      background: var(--black);
-      color: var(--grey);
+    :root {
+      --bg: #121212;
+      --surface: #18181b;
+      --ink: #f9fafb;
+      --muted: #9ca3af;
+      --soft: #6b7280;
+      --line: rgba(255, 255, 255, 0.1);
+      --accent: #b55a2a;
+      --accent-soft: rgba(181, 90, 42, 0.16);
+      --green: #4ade80;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    @page {
+      size: letter;
+      margin: 0.2in;
+    }
+
+    html {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "MartianMono", "Consolas", "Liberation Mono", monospace;
       font-size: 13px;
-      line-height: 1.6;
-      min-height: 100vh;
+      line-height: 1.5;
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
     }
 
-    /* ── GRAIN OVERLAY ─────────────────────────── */
+    body {
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--ink);
+      padding: 2rem 1rem 3rem;
+      position: relative;
+    }
+
     body::before {
-      content: '';
+      content: "";
       position: fixed;
       inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 30px 30px;
+      opacity: 1;
       pointer-events: none;
-      z-index: 9998;
-      opacity: 0.5;
     }
 
-    /* ══════════════════════════════════════════════
-       LAYOUT
-    ══════════════════════════════════════════════ */
-    .page {
-      max-width: 1020px;
+    a {
+      color: inherit;
+      text-decoration-color: var(--accent-soft);
+      text-underline-offset: 0.14rem;
+    }
+
+    .toolbar {
+      width: min(8.5in, calc(100vw - 2rem));
+      margin: 0 auto 0.85rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .toolbar-note {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    .toolbar-actions {
+      display: flex;
+      gap: 0.45rem;
+    }
+
+    .toolbar a,
+    .toolbar button {
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--ink);
+      padding: 0.48rem 0.72rem;
+      font: inherit;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      cursor: pointer;
+      transition: transform 140ms ease, border-color 140ms ease, background 140ms ease;
+    }
+
+    .toolbar a:hover,
+    .toolbar button:hover {
+      transform: translateY(-1px);
+      border-color: var(--accent);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .sheet {
+      width: min(8.5in, calc(100vw - 2rem));
+      min-height: 11in;
       margin: 0 auto;
-      padding: 2.5rem 2rem 3rem;
-    }
-
-    /* ══════════════════════════════════════════════
-       HEADER
-    ══════════════════════════════════════════════ */
-    header {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      padding: 0.42in 0.44in 0.38in;
       position: relative;
-      border: 1px solid var(--orange-line);
-      padding: 1.6rem 1.8rem 1.4rem;
-      margin-bottom: 2rem;
-      background: linear-gradient(135deg, rgba(242,137,39,0.04) 0%, transparent 60%);
+      overflow: hidden;
+      animation: sheetIn 420ms ease-out both;
     }
 
-    header::before,
-    header::after {
+    .sheet::before,
+    .sheet::after {
+      content: "";
       position: absolute;
-      color: var(--orange);
-      font-size: 11px;
-      letter-spacing: 0.15em;
-      background: var(--black);
-      padding: 0 0.5rem;
-    }
-    header::before {
-      content: '[ CURRICULUM VITAE ]';
-      top: -0.65em;
-      left: 1.2rem;
-    }
-    header::after {
-      content: 'jasonpersinger.cv';
-      bottom: -0.65em;
-      right: 1.2rem;
-      color: var(--green);
-      font-size: 10px;
-      letter-spacing: 0.1em;
+      inset: 14px;
+      border: 1px solid var(--line);
+      pointer-events: none;
     }
 
-    .header-inner {
+    .sheet::after {
+      inset: auto 14px 14px auto;
+      width: 3.25rem;
+      height: 3.25rem;
+      border-left: none;
+      border-top: none;
+      border-right-color: var(--accent-soft);
+      border-bottom-color: var(--accent-soft);
+    }
+
+    @keyframes sheetIn {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .header {
+      display: grid;
+      grid-template-columns: minmax(0, 1.7fr) minmax(14rem, 1fr);
+      gap: 1rem;
+      align-items: end;
+      padding-bottom: 0.22in;
+      border-bottom: 2px solid var(--line);
+    }
+
+    .eyebrow,
+    .section-title,
+    .minor-title,
+    .project-kicker,
+    .footer {
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: 0.66rem;
+      margin-bottom: 0.38rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      line-height: 0.96;
+      letter-spacing: -0.045em;
+      max-width: 6.2in;
+    }
+
+    .headline {
+      margin-top: 0.45rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+      max-width: 5.3in;
+    }
+
+    .contact {
+      display: grid;
+      gap: 0.28rem;
+      justify-items: end;
+      color: var(--muted);
+      font-size: 0.76rem;
+      text-align: right;
+    }
+
+    .contact strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .summary {
+      margin: 0.2in 0 0.18in;
       display: grid;
       grid-template-columns: 1fr auto;
-      gap: 2rem;
+      gap: 0.85rem;
       align-items: start;
+      padding: 0.13in 0;
+      border-bottom: 1px solid var(--line);
     }
 
-    .header-name {
-      font-size: 34px;
-      font-weight: bold;
-      color: var(--light);
-      letter-spacing: -0.01em;
-      line-height: 1;
-      margin-bottom: 0.5rem;
+    .summary-copy {
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.52;
+      max-width: 6.15in;
     }
 
-    .cursor {
-      display: inline-block;
-      width: 20px;
-      height: 30px;
-      background: var(--orange);
-      vertical-align: bottom;
-      margin-left: 3px;
-      animation: blink 1.2s step-end infinite;
-    }
-
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50%       { opacity: 0; }
-    }
-
-    .header-role {
-      font-size: 11px;
-      color: var(--orange);
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-    }
-
-    .header-contact {
-      text-align: right;
-      line-height: 1.8;
-      font-size: 12px;
-    }
-
-    .header-contact a {
-      color: var(--green);
-      text-decoration: none;
-    }
-    .header-contact a:hover { text-decoration: underline; }
-
-    /* ══════════════════════════════════════════════
-       SUMMARY
-    ══════════════════════════════════════════════ */
-    .summary-wrap {
-      margin-bottom: 2rem;
-      padding: 0.9rem 1.2rem;
-      border-left: 2px solid var(--orange);
-      background: rgba(242,137,39,0.03);
-    }
-
-    .summary-label {
-      font-size: 10px;
-      color: var(--orange);
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      margin-bottom: 0.4rem;
-    }
-
-    .summary-text {
-      font-size: 12px;
-      color: var(--grey);
-      line-height: 1.7;
-    }
-
-    /* ══════════════════════════════════════════════
-       BODY GRID
-    ══════════════════════════════════════════════ */
-    .body-grid {
+    .summary-mark {
       display: grid;
-      grid-template-columns: 1fr 268px;
-      gap: 2.2rem;
-      align-items: start;
-    }
-
-    /* ══════════════════════════════════════════════
-       SECTION HEADERS
-    ══════════════════════════════════════════════ */
-    .sec-head {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin-bottom: 1.1rem;
-    }
-
-    .sec-head-label {
-      font-size: 11px;
-      color: var(--orange);
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
-
-    .sec-head-label::before { content: '> '; }
-
-    .sec-head-rule {
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(to right, var(--orange-line), transparent);
-    }
-
-    /* ══════════════════════════════════════════════
-       JOB ENTRIES
-    ══════════════════════════════════════════════ */
-    .section { margin-bottom: 2rem; }
-
-    .job { margin-bottom: 1.2rem; }
-
-    .job-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      margin-bottom: 0.15rem;
-    }
-
-    .job-title {
-      font-size: 13.5px;
-      font-weight: bold;
-      color: var(--light);
-    }
-
-    .job-company {
-      color: var(--orange);
-      font-size: 13px;
-    }
-
-    .job-dates {
-      font-size: 11px;
-      color: var(--green);
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-
-    .job-location {
-      font-size: 10.5px;
-      color: var(--grey);
-      opacity: 0.6;
-      margin-bottom: 0.5rem;
-      letter-spacing: 0.02em;
-    }
-
-    ul.bullets {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
       gap: 0.32rem;
+      min-width: 1.8in;
+      padding-left: 0.72rem;
+      border-left: 1px solid var(--line);
+      font-size: 0.68rem;
+      color: var(--soft);
     }
 
-    ul.bullets li {
-      font-size: 11.5px;
-      color: var(--grey);
-      line-height: 1.65;
-      padding-left: 1.1em;
-      position: relative;
+    .summary-mark strong {
+      color: var(--green);
+      font-size: 0.9rem;
+      letter-spacing: -0.02em;
     }
 
-    ul.bullets li::before {
-      content: '·';
-      color: var(--orange);
-      position: absolute;
-      left: 0.1em;
-      top: 0;
-    }
-
-    .job-div {
-      height: 1px;
-      background: repeating-linear-gradient(
-        to right,
-        var(--orange-line) 0px,
-        var(--orange-line) 4px,
-        transparent 4px,
-        transparent 8px
-      );
-      margin: 1.1rem 0;
-    }
-
-    /* ══════════════════════════════════════════════
-       PROJECTS
-    ══════════════════════════════════════════════ */
-    .projects-grid {
+    .content {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.75rem;
+      grid-template-columns: minmax(0, 1.58fr) minmax(2.1in, 0.92fr);
+      gap: 0.22in;
+      margin-top: 0.16in;
     }
 
-    .project-card {
-      border: 1px solid var(--orange-line);
-      padding: 0.85rem 1rem;
+    .section + .section {
+      margin-top: 0.14in;
+    }
+
+    .section-title {
+      font-size: 0.66rem;
+      color: var(--accent);
+      margin-bottom: 0.11in;
+    }
+
+    .section-title::before {
+      content: "[ ";
+    }
+
+    .section-title::after {
+      content: " ]";
+    }
+
+    .timeline {
+      display: grid;
+      gap: 0.12in;
+    }
+
+    .role {
+      display: grid;
+      gap: 0.04in;
+      padding-bottom: 0.12in;
+      border-bottom: 1px solid rgba(36, 33, 29, 0.08);
+      break-inside: avoid;
+    }
+
+    .role:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .role-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 0.45rem;
+      align-items: baseline;
+    }
+
+    .role-title {
+      font-size: 0.98rem;
+      line-height: 1.15;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      align-items: baseline;
+    }
+
+    .role-title strong {
+      font-weight: 700;
+    }
+
+    .role-title span {
+      color: var(--accent);
+    }
+
+    .role-date {
+      color: var(--green);
+      font-size: 0.74rem;
+      white-space: nowrap;
+    }
+
+    .role-meta {
+      color: var(--soft);
+      font-size: 0.69rem;
+    }
+
+    .role ul {
+      list-style: none;
+      display: grid;
+      gap: 0.18rem;
+      margin-top: 0.04in;
+      color: var(--muted);
+      font-size: 0.75rem;
+      line-height: 1.45;
+    }
+
+    .role li {
       position: relative;
-      transition: border-color 0.15s, background 0.15s;
+      padding-left: 0.7rem;
     }
 
-    .project-card:hover {
-      border-color: var(--orange);
-      background: rgba(242,137,39,0.03);
-    }
-
-    .project-card::before {
-      content: '+';
+    .role li::before {
+      content: "";
       position: absolute;
-      top: -0.55em;
-      left: -0.4em;
-      color: var(--orange);
-      font-size: 12px;
-      background: var(--black);
+      left: 0;
+      top: 0.45rem;
+      width: 0.34rem;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.12in;
+      margin-top: 0.02in;
+    }
+
+    .project {
+      display: grid;
+      gap: 0.35rem;
+      border: 1px solid var(--line);
+      padding: 0.12in;
+      background: rgba(255, 255, 255, 0.24);
+      break-inside: avoid;
+    }
+
+    .project-kicker {
+      color: var(--soft);
+      font-size: 0.56rem;
+    }
+
+    .project h3 {
+      font-size: 0.88rem;
+      line-height: 1.1;
+    }
+
+    .project p {
+      color: var(--muted);
+      font-size: 0.71rem;
+      line-height: 1.45;
+    }
+
+    .stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.24rem;
+    }
+
+    .stack span,
+    .chip {
+      border: 1px solid rgba(62, 106, 74, 0.24);
+      background: rgba(62, 106, 74, 0.06);
+      color: var(--green);
+      font-size: 0.6rem;
+      padding: 0.18rem 0.34rem;
       line-height: 1;
     }
 
-    .project-name {
-      font-size: 12px;
-      font-weight: bold;
-      color: var(--orange);
-      text-decoration: none;
-      display: block;
-      margin-bottom: 0.4rem;
+    .project-note {
+      color: var(--soft);
+      font-size: 0.6rem;
     }
 
-    .project-name:hover { text-decoration: underline; }
-
-    .project-desc {
-      font-size: 11px;
-      color: var(--grey);
-      line-height: 1.55;
-      margin-bottom: 0.45rem;
-    }
-
-    .project-stack {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.22rem;
-      margin-bottom: 0.35rem;
-    }
-
-    .stack-pill {
-      font-size: 9px;
-      color: var(--green);
-      border: 1px solid rgba(57,128,62,0.45);
-      padding: 0.1rem 0.38rem;
-    }
-
-    .project-notable {
-      font-size: 10px;
-      color: var(--grey);
-      opacity: 0.55;
-      font-style: italic;
-    }
-
-    /* ══════════════════════════════════════════════
-       SIDEBAR
-    ══════════════════════════════════════════════ */
     .sidebar {
-      display: flex;
-      flex-direction: column;
-      gap: 1.6rem;
-      border-left: 1px solid var(--orange-line);
-      padding-left: 1.5rem;
+      display: grid;
+      gap: 0.12in;
     }
 
-    .sb-head {
-      font-size: 10px;
-      color: var(--orange);
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      margin-bottom: 0.65rem;
-      padding-bottom: 0.3rem;
-      border-bottom: 1px solid var(--orange-line);
+    .panel {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.2);
+      padding: 0.12in;
+      break-inside: avoid;
     }
 
-    .skills-grid {
+    .minor-title {
+      color: var(--accent);
+      font-size: 0.58rem;
+      margin-bottom: 0.08in;
+    }
+
+    .chips {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.28rem;
+      gap: 0.24rem;
     }
 
-    .skill-tag {
-      font-size: 9.5px;
-      color: var(--grey);
-      border: 1px solid rgba(170,170,170,0.2);
-      padding: 0.14rem 0.42rem;
-      line-height: 1.5;
+    .list {
+      display: grid;
+      gap: 0.3rem;
+      color: var(--muted);
+      font-size: 0.71rem;
     }
 
-    .tech-list { display: flex; flex-direction: column; }
-
-    .tech-item {
-      font-size: 11px;
-      color: var(--grey);
-      padding: 0.24rem 0;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-      line-height: 1.3;
+    .list strong {
+      color: var(--ink);
+      font-weight: 500;
     }
 
-    .tech-item.featured { color: var(--light); }
-
-    .edu-entry + .edu-entry { margin-top: 0.85rem; }
-
-    .edu-degree {
-      font-size: 11px;
-      color: var(--light);
-      font-weight: bold;
-      line-height: 1.3;
+    .edu-item + .edu-item {
+      margin-top: 0.08in;
+      padding-top: 0.08in;
+      border-top: 1px solid rgba(36, 33, 29, 0.08);
     }
 
-    .edu-school {
-      font-size: 10px;
-      color: var(--green);
-      margin-top: 0.1rem;
-    }
-
-    /* ══════════════════════════════════════════════
-       STATUS BAR
-    ══════════════════════════════════════════════ */
-    .status-bar {
-      margin-top: 2.5rem;
-      padding: 0.4rem 0.8rem;
-      border: 1px solid rgba(170,170,170,0.12);
+    .footer {
+      margin-top: 0.18in;
+      padding-top: 0.12in;
+      border-top: 1px solid var(--line);
       display: flex;
       justify-content: space-between;
-      font-size: 10px;
-      color: rgba(170,170,170,0.4);
-      letter-spacing: 0.08em;
+      gap: 0.5rem;
+      color: var(--soft);
+      font-size: 0.56rem;
     }
 
-    .status-bar span { white-space: nowrap; }
-
-    /* ══════════════════════════════════════════════
-       DOWNLOAD BUTTON
-    ══════════════════════════════════════════════ */
-    .dl-btn {
-      position: fixed;
-      bottom: 1.6rem;
-      right: 1.6rem;
-      font-family: var(--mono);
-      font-size: 10px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: var(--orange);
-      background: var(--black);
-      border: 1px solid var(--orange);
-      padding: 0.55rem 1.1rem;
-      z-index: 9997;
-      transition: background 0.12s, color 0.12s;
-    }
-
-    .dl-btn:hover {
-      background: var(--orange);
-      color: var(--black);
-    }
-
-    /* ══════════════════════════════════════════════
-       ENTRANCE ANIMATIONS
-    ══════════════════════════════════════════════ */
-    .anim {
-      opacity: 0;
-      transform: translateY(6px);
-      animation: fadeUp 0.35s ease forwards;
-    }
-
-    @keyframes fadeUp {
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    header.anim                  { animation-delay: 0.05s; }
-    .summary-wrap.anim           { animation-delay: 0.14s; }
-    .section.anim:nth-child(1)   { animation-delay: 0.20s; }
-    .section.anim:nth-child(2)   { animation-delay: 0.28s; }
-    .sb-block.anim:nth-child(1)  { animation-delay: 0.22s; }
-    .sb-block.anim:nth-child(2)  { animation-delay: 0.30s; }
-    .sb-block.anim:nth-child(3)  { animation-delay: 0.38s; }
-    .status-bar.anim             { animation-delay: 0.40s; }
-
-    /* ══════════════════════════════════════════════
-       PRINT
-    ══════════════════════════════════════════════ */
-    @media print {
-      body { background: #fff; color: #222; font-size: 10pt; }
-      body::before, body::after { display: none; }
-
-      :root {
-        --orange:      #c06010;
-        --green:       #1a5c20;
-        --black:       #ffffff;
-        --grey:        #444444;
-        --light:       #111111;
-        --orange-line: rgba(180,80,0,0.35);
+    @media (max-width: 920px) {
+      body {
+        padding: 1rem 0.65rem 2rem;
       }
 
-      .page { padding: 0; max-width: 100%; }
-      .dl-btn, .status-bar { display: none; }
-      .anim { opacity: 1; transform: none; animation: none; }
-      .cursor { display: none; }
-      header { background: transparent; }
-      header::before, header::after { display: none; }
-      .summary-wrap { background: transparent; }
-      .project-card::before { background: #fff; }
-      .sidebar { border-left-color: rgba(180,80,0,0.35); }
-      .body-grid { grid-template-columns: 1fr 240px; }
+      .toolbar,
+      .sheet {
+        width: 100%;
+      }
     }
 
-    /* ── RESPONSIVE ───────────────────────────── */
-    @media (max-width: 720px) {
-      .body-grid { grid-template-columns: 1fr; }
-      .sidebar {
-        border-left: none;
-        border-top: 1px solid var(--orange-line);
+    @media (max-width: 760px) {
+      .header,
+      .summary,
+      .content,
+      .role-head,
+      .footer {
+        grid-template-columns: 1fr;
+      }
+
+      .contact {
+        justify-items: start;
+        text-align: left;
+      }
+
+      .summary-mark {
         padding-left: 0;
-        padding-top: 1.4rem;
+        border-left: none;
+        border-top: 1px solid var(--line);
+        padding-top: 0.6rem;
       }
-      .projects-grid { grid-template-columns: 1fr; }
-      .header-inner { grid-template-columns: 1fr; }
-      .header-contact { text-align: left; }
+
+      .projects {
+        grid-template-columns: 1fr;
+      }
+
+      .footer {
+        display: grid;
+      }
+    }
+
+    @media print {
+      html {
+        font-size: 10.3px;
+      }
+
+      html,
+      body {
+        background: #fff;
+      }
+
+      body {
+        padding: 0;
+      }
+
+      body::before,
+      .toolbar {
+        display: none;
+      }
+
+      .sheet {
+        width: auto;
+        min-height: auto;
+        margin: 0;
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        animation: none;
+      }
+
+      .header {
+        grid-template-columns: minmax(0, 1.7fr) minmax(14rem, 1fr);
+        padding-bottom: 0.15in;
+      }
+
+      .summary {
+        grid-template-columns: 1fr auto;
+        margin: 0.12in 0 0.1in;
+        padding: 0.08in 0;
+      }
+
+      .content {
+        grid-template-columns: minmax(0, 1.58fr) minmax(2.1in, 0.92fr);
+        gap: 0.15in;
+        margin-top: 0.1in;
+      }
+
+      .footer {
+        display: none;
+      }
+
+      .contact {
+        justify-items: end;
+        text-align: right;
+      }
+
+      .summary-mark {
+        padding-left: 0.72rem;
+        padding-top: 0;
+        border-left: 1px solid var(--line);
+        border-top: none;
+      }
+
+      .projects {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .section + .section {
+        margin-top: 0.1in;
+      }
+
+      .section-title {
+        margin-bottom: 0.07in;
+      }
+
+      .timeline {
+        gap: 0.08in;
+      }
+
+      .role {
+        gap: 0.02in;
+        padding-bottom: 0.08in;
+      }
+
+      .role ul,
+      .project p,
+      .list {
+        font-size: 0.68rem;
+        line-height: 1.35;
+      }
+
+      .role ul {
+        gap: 0.12rem;
+      }
+
+      .project,
+      .panel {
+        padding: 0.08in;
+      }
+
+      .project {
+        gap: 0.22rem;
+      }
+
+      .sheet::before,
+      .sheet::after {
+        display: none;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      .project,
+      .panel {
+        background: transparent;
+      }
     }
   </style>
 </head>
 <body>
-
-<a class="dl-btn" href="PersingerJasonResume.pdf" download>[ download pdf ]</a>
-
-<div class="page">
-
-  <!-- HEADER -->
-  <header class="anim">
-    <div class="header-inner">
-      <div>
-        <div class="header-name">Jason Persinger<span class="cursor"></span></div>
-      </div>
-      <div class="header-contact">
-        <div>709 Marshall Ave SW #A</div>
-        <div>Roanoke, VA 24016</div>
-        <div>(540) 394-8222</div>
-        <div><a href="mailto:jason.persinger@gmail.com">jason.persinger@gmail.com</a></div>
-      </div>
+  <div class="toolbar" aria-hidden="true">
+    <div class="toolbar-note">Single-page resume layout</div>
+    <div class="toolbar-actions">
+      <button type="button" onclick="window.print()">Print / Save PDF</button>
+      <a href="./PersingerJasonResume.pdf" download>Download source PDF</a>
     </div>
-  </header>
-
-  <!-- SUMMARY -->
-  <div class="summary-wrap anim">
-    <div class="summary-label">// summary</div>
-    <p class="summary-text">Support specialist with 5+ years resolving complex software issues, debugging enterprise workflows, and delivering high-touch support across diverse user types. Strong written communicator with a track record of building documentation, training resources, and scalable processes.</p>
   </div>
 
-  <!-- BODY -->
-  <div class="body-grid">
-
-    <main>
-
-      <!-- EXPERIENCE -->
-      <div class="section anim">
-        <div class="sec-head">
-          <span class="sec-head-label">Experience</span>
-          <div class="sec-head-rule"></div>
-        </div>
-
-        <!-- Pixel Patcher -->
-        <div class="job">
-          <div class="job-header">
-            <div>
-              <span class="job-title">Owner &amp; Operator</span>
-              <span class="job-company"> / Pixel Patcher</span>
-            </div>
-            <span class="job-dates">2025 – Present</span>
-          </div>
-          <div class="job-location">Roanoke, VA &nbsp;·&nbsp; Mobile PC Repair &amp; IT Consulting</div>
-          <ul class="bullets">
-            <li>Founded and operate a mobile PC repair business — service delivery, client acquisition, scheduling, and pricing, all solo</li>
-            <li>High-touch in-home support for residential and SMB clients; tailor approach to each client's technical proficiency</li>
-            <li>Scope hardware, software, security, and workflow needs for small businesses; provide end-user education to reduce repeat issues</li>
-          </ul>
-        </div>
-
-        <div class="job-div"></div>
-
-        <!-- AbsenceSoft -->
-        <div class="job">
-          <div class="job-header">
-            <div>
-              <span class="job-title">Software Support Analyst</span>
-              <span class="job-company"> / AbsenceSoft</span>
-            </div>
-            <span class="job-dates">Jan 2023 – Present</span>
-          </div>
-          <div class="job-location">Denver, CO</div>
-          <ul class="bullets">
-            <li>Root cause analysis on enterprise leave management workflows, SSO/integration failures, and configuration issues across diverse client environments</li>
-            <li>Authored runbooks, user guides, and workflow diagrams; reduced repeat contacts and accelerated onboarding</li>
-            <li>Partner with engineering via Salesforce/JIRA to escalate and resolve issues; surface patterns to drive proactive product improvements</li>
-          </ul>
-        </div>
-
-        <div class="job-div"></div>
-
-        <!-- Binance.US -->
-        <div class="job">
-          <div class="job-header">
-            <div>
-              <span class="job-title">Support Team Lead</span>
-              <span class="job-company"> / Binance.US</span>
-            </div>
-            <span class="job-dates">Jul 2021 – Dec 2022</span>
-          </div>
-          <div class="job-location">San Francisco, CA</div>
-          <ul class="bullets">
-            <li>Led and coached a support team handling escalated cases on a complex crypto platform; drove measurable gains in CSAT and resolution time</li>
-            <li>Built the org's foundational knowledge base and onboarding resources; designed compliance training tailored to varied proficiency levels</li>
-            <li>Change management lead for platform updates — communicated objectives cross-functionally and gained stakeholder alignment</li>
-          </ul>
-        </div>
-
-        <div class="job-div"></div>
-
-        <!-- PowerSchool -->
-        <div class="job">
-          <div class="job-header">
-            <div>
-              <span class="job-title">Implementation Project Manager</span>
-              <span class="job-company"> / PowerSchool</span>
-            </div>
-            <span class="job-dates">Dec 2019 – Jun 2021</span>
-          </div>
-          <div class="job-location">Roanoke, VA</div>
-          <ul class="bullets">
-            <li>Led K-12 software implementations end-to-end: needs assessment, configuration, training delivery, and post-launch support</li>
-            <li>Troubleshot SaaS integrations and configuration issues; partnered with engineering to resolve technical blockers for clients</li>
-            <li>Managed concurrent implementations in shifting-priority environments; trained mixed-proficiency audiences across administrator and staff roles</li>
-          </ul>
-        </div>
-
-      </div><!-- /experience -->
-
-      <!-- PROJECTS -->
-      <div class="section anim">
-        <div class="sec-head">
-          <span class="sec-head-label">Projects</span>
-          <div class="sec-head-rule"></div>
-        </div>
-        <div class="projects-grid">
-
-          <div class="project-card">
-            <a class="project-name" href="https://holler.works" target="_blank">holler.works</a>
-            <p class="project-desc">Moderation-first job &amp; skills board for Appalachia's tech community — post "I need X" or "I can offer X" without an account. Compensation required on every listing.</p>
-            <div class="project-stack">
-              <span class="stack-pill">Vanilla JS</span>
-              <span class="stack-pill">Firebase Firestore</span>
-              <span class="stack-pill">Cloud Functions</span>
-              <span class="stack-pill">Netlify</span>
-            </div>
-            <p class="project-notable">Built solo &nbsp;·&nbsp; no sign-up &nbsp;·&nbsp; no npm &nbsp;·&nbsp; no build step</p>
-          </div>
-
-          <div class="project-card">
-            <a class="project-name" href="https://pixelpatcher.com" target="_blank">pixelpatcher.com</a>
-            <p class="project-desc">Full customer journey for a solo PC repair business — marketing, booking, remote support, and an internal accounting &amp; CRM tracking jobs, invoices, and tax estimates.</p>
-            <div class="project-stack">
-              <span class="stack-pill">HTML / CSS / JS</span>
-              <span class="stack-pill">Firebase</span>
-              <span class="stack-pill">Google Places API</span>
-              <span class="stack-pill">Netlify</span>
-            </div>
-            <p class="project-notable">Built &amp; maintained by the person running the business</p>
-          </div>
-
-        </div>
-      </div><!-- /projects -->
-
-    </main>
-
-    <!-- SIDEBAR -->
-    <aside class="sidebar">
-
-      <div class="sb-block anim">
-        <div class="sb-head">Core Competencies</div>
-        <div class="skills-grid">
-          <span class="skill-tag">Technical Support</span>
-          <span class="skill-tag">Root Cause Analysis</span>
-          <span class="skill-tag">Escalation Mgmt</span>
-          <span class="skill-tag">SaaS Platforms</span>
-          <span class="skill-tag">API Troubleshooting</span>
-          <span class="skill-tag">Knowledge Base Dev</span>
-          <span class="skill-tag">Technical Docs</span>
-          <span class="skill-tag">User Empathy</span>
-          <span class="skill-tag">Change Management</span>
-          <span class="skill-tag">Cross-Functional Collab</span>
-          <span class="skill-tag">Process Improvement</span>
-          <span class="skill-tag">Salesforce &amp; JIRA</span>
-        </div>
+  <main class="sheet">
+    <header class="header">
+      <div>
+        <div class="eyebrow">Jason Persinger / Support Systems / Technical Communication</div>
+        <h1>Jason Persinger</h1>
+        <p class="headline">
+          Support specialist focused on root-cause analysis, enterprise workflow debugging, technical writing, and high-touch client support across software and IT environments.
+        </p>
       </div>
 
-      <div class="sb-block anim">
-        <div class="sb-head">Technical Skills</div>
-        <div class="tech-list">
-          <div class="tech-item featured">LLM Applications &amp; AI Products</div>
-          <div class="tech-item">Linux / Command Line</div>
-          <div class="tech-item">Bash Scripting</div>
-          <div class="tech-item">Git &amp; Version Control</div>
-          <div class="tech-item">SSO / SAML / OAuth</div>
-          <div class="tech-item">SQL (Basic)</div>
-          <div class="tech-item">Python (Basic)</div>
-          <div class="tech-item">JavaScript (Basic)</div>
-          <div class="tech-item">Networking Fundamentals</div>
-        </div>
+      <div class="contact">
+        <div><strong>Base</strong> Roanoke, VA</div>
+        <div><strong>Address</strong> 709 Marshall Ave SW #A, Roanoke, VA 24016</div>
+        <div><strong>Phone</strong> <a href="tel:+15403948222">(540) 394-8222</a></div>
+        <div><strong>Email</strong> <a href="mailto:jason.persinger@gmail.com">jason.persinger@gmail.com</a></div>
+      </div>
+    </header>
+
+    <section class="summary">
+      <p class="summary-copy">
+        Support specialist with 5+ years resolving complex software issues, debugging enterprise workflows, and delivering high-touch support across diverse user types. Strong written communicator with a track record of building documentation, training resources, and scalable processes.
+      </p>
+      <div class="summary-mark">
+        <div>Focus</div>
+        <strong>Support + systems thinking</strong>
+        <div>Strength in translating technical complexity into usable process.</div>
+      </div>
+    </section>
+
+    <div class="content">
+      <div>
+        <section class="section">
+          <div class="section-title">Experience</div>
+          <div class="timeline">
+            <article class="role">
+              <div class="role-head">
+                <div class="role-title">
+                  <strong>Owner &amp; Operator</strong>
+                  <span>Pixel Patcher</span>
+                </div>
+                <div class="role-date">2025 - Present</div>
+              </div>
+              <div class="role-meta">Roanoke, VA / Mobile PC Repair &amp; IT Consulting</div>
+              <ul>
+                <li>Founded and operate a mobile PC repair business spanning service delivery, client acquisition, scheduling, and pricing.</li>
+                <li>Provide in-home support for residential and SMB clients, adapting to each client&apos;s technical proficiency.</li>
+                <li>Scope hardware, software, security, and workflow needs for small businesses and reduce repeat issues through end-user education.</li>
+              </ul>
+            </article>
+
+            <article class="role">
+              <div class="role-head">
+                <div class="role-title">
+                  <strong>Software Support Analyst</strong>
+                  <span>AbsenceSoft</span>
+                </div>
+                <div class="role-date">Jan 2023 - Present</div>
+              </div>
+              <div class="role-meta">Denver, CO</div>
+              <ul>
+                <li>Run root-cause analysis on enterprise leave-management workflows, SSO and integration failures, and client configuration issues.</li>
+                <li>Author runbooks, user guides, and workflow diagrams that reduce repeat contacts and speed onboarding.</li>
+                <li>Partner with engineering through Salesforce and JIRA to escalate issues and surface patterns for product improvement.</li>
+              </ul>
+            </article>
+
+            <article class="role">
+              <div class="role-head">
+                <div class="role-title">
+                  <strong>Support Team Lead</strong>
+                  <span>Binance.US</span>
+                </div>
+                <div class="role-date">Jul 2021 - Dec 2022</div>
+              </div>
+              <div class="role-meta">San Francisco, CA</div>
+              <ul>
+                <li>Led a support team handling escalated cases on a complex crypto platform and improved CSAT and resolution time.</li>
+                <li>Built foundational knowledge-base and onboarding resources, including compliance training for mixed proficiency levels.</li>
+                <li>Acted as change-management lead for platform updates, aligning support and stakeholders around rollout objectives.</li>
+              </ul>
+            </article>
+
+            <article class="role">
+              <div class="role-head">
+                <div class="role-title">
+                  <strong>Implementation Project Manager</strong>
+                  <span>PowerSchool</span>
+                </div>
+                <div class="role-date">Dec 2019 - Jun 2021</div>
+              </div>
+              <div class="role-meta">Roanoke, VA</div>
+              <ul>
+                <li>Led K-12 software implementations end-to-end, including needs assessment, configuration, training, and post-launch support.</li>
+                <li>Troubleshot SaaS integrations and configuration issues in partnership with engineering.</li>
+                <li>Managed concurrent implementations and trained administrators and staff with varied technical backgrounds.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-title">Selected Projects</div>
+          <div class="projects">
+            <article class="project">
+              <div class="project-kicker">Community platform</div>
+              <h3><a href="https://holler.works" target="_blank" rel="noreferrer">holler.works</a></h3>
+              <p>Moderation-first job and skills board for Appalachia&apos;s tech community. Users can post needs or offers without an account, and every listing requires compensation.</p>
+              <div class="stack">
+                <span>Vanilla JS</span>
+                <span>Firestore</span>
+                <span>Cloud Functions</span>
+                <span>Netlify</span>
+              </div>
+              <div class="project-note">Built solo / no sign-up / no npm / no build step</div>
+            </article>
+
+            <article class="project">
+              <div class="project-kicker">Business operations</div>
+              <h3><a href="https://pixelpatcher.com" target="_blank" rel="noreferrer">pixelpatcher.com</a></h3>
+              <p>Full customer journey for a solo PC repair business, including marketing, booking, remote support, and internal CRM-style tracking for jobs, invoices, and tax estimates.</p>
+              <div class="stack">
+                <span>HTML / CSS / JS</span>
+                <span>Firebase</span>
+                <span>Google Places API</span>
+                <span>Netlify</span>
+              </div>
+              <div class="project-note">Built and maintained by the same person running the business</div>
+            </article>
+          </div>
+        </section>
       </div>
 
-      <div class="sb-block anim">
-        <div class="sb-head">Education</div>
-        <div class="edu-entry">
-          <div class="edu-degree">B.S. English Literature</div>
-          <div class="edu-school">Radford University, VA &middot; 2011</div>
-        </div>
-        <div class="edu-entry">
-          <div class="edu-degree">Google IT Support</div>
-          <div class="edu-school">Professional Certificate</div>
-        </div>
-      </div>
+      <aside class="sidebar">
+        <section class="panel">
+          <div class="minor-title">Core Competencies</div>
+          <div class="chips">
+            <span class="chip">Technical Support</span>
+            <span class="chip">Root Cause Analysis</span>
+            <span class="chip">Escalation Mgmt</span>
+            <span class="chip">SaaS Platforms</span>
+            <span class="chip">API Troubleshooting</span>
+            <span class="chip">Knowledge Base Dev</span>
+            <span class="chip">Technical Docs</span>
+            <span class="chip">User Empathy</span>
+            <span class="chip">Change Management</span>
+            <span class="chip">Cross-Functional Collab</span>
+            <span class="chip">Process Improvement</span>
+            <span class="chip">Salesforce &amp; JIRA</span>
+          </div>
+        </section>
 
-    </aside>
+        <section class="panel">
+          <div class="minor-title">Technical Skills</div>
+          <div class="list">
+            <div><strong>Primary:</strong> LLM Applications &amp; AI Products, Linux / Command Line, Bash Scripting, Git</div>
+            <div><strong>Identity:</strong> SSO, SAML, OAuth</div>
+            <div><strong>Working knowledge:</strong> SQL, Python, JavaScript, Networking Fundamentals</div>
+            <div><strong>Best fit:</strong> technical support, implementation, operations, support systems, product-adjacent enablement</div>
+            <div><strong>Style:</strong> direct communicator, documentation-minded, calm in ambiguous support work</div>
+          </div>
+        </section>
 
-  </div><!-- /body-grid -->
+        <section class="panel">
+          <div class="minor-title">Education</div>
+          <div class="list">
+            <div class="edu-item">
+              <strong>B.S. English Literature</strong><br>
+              Radford University, VA / 2011
+            </div>
+            <div class="edu-item">
+              <strong>Google IT Support</strong><br>
+              Professional Certificate
+            </div>
+          </div>
+        </section>
 
-  <!-- STATUS BAR -->
-  <div class="status-bar anim">
-    <span>JASON PERSINGER // CV</span>
-    <span>TECHNICAL SUPPORT &nbsp;·&nbsp; AI PRODUCTS &nbsp;·&nbsp; ROANOKE VA</span>
-    <span>jasonpersinger.cv</span>
-  </div>
+      </aside>
+    </div>
 
-</div>
+    <div class="footer">
+      <span>Jason Persinger / Resume Site</span>
+      <span>Optimized for one-page print and PDF export</span>
+      <span>jasonpersinger.cv</span>
+    </div>
+  </main>
 </body>
 </html>
