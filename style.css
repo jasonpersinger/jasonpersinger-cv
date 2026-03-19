@@ -12,9 +12,10 @@
   --line: rgba(255, 255, 255, 0.1);
   --accent: #b55a2a;
   --accent-soft: rgba(181, 90, 42, 0.16);
+  --green: #4ade80;
   --shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-  --serif: "Martian Mono", monospace;
-  --sans: "Inter", "Segoe UI", Helvetica, Arial, sans-serif;
+  --serif: "MartianMono", "Consolas", "Liberation Mono", monospace;
+  --sans: "Inter", system-ui, -apple-system, sans-serif;
 }
 
 * {
@@ -26,6 +27,7 @@ html {
   color: var(--ink);
   font-size: 13px;
   line-height: 1.5;
+  font-family: var(--sans);
 }
 
 body {
@@ -45,19 +47,71 @@ main {
   border: 1px solid var(--line);
 }
 
-h1,
-h2,
-h3 {
-  margin: 0;
+.header {
+  padding-bottom: 0.22in;
+  border-bottom: 2px solid var(--line);
+  margin-bottom: 0.2in;
+}
+
+.eyebrow {
+  color: var(--accent);
+  font-size: 0.66rem;
+  margin-bottom: 0.38rem;
+  font-family: var(--serif);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
 }
 
 h1 {
   font-family: var(--serif);
-  font-size: 2.55rem;
-  line-height: 0.95;
-  letter-spacing: -0.04em;
+  font-size: 2.5rem;
+  line-height: 0.96;
+  letter-spacing: -0.045em;
   margin-bottom: 0.28rem;
 }
+
+.headline {
+  margin-top: 0.45rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+  max-width: 5.3in;
+}
+
+.summary {
+  margin: 0.1in 0 0.18in;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1.5rem;
+  align-items: start;
+  padding: 0.13in 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.summary-copy {
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.52;
+}
+
+.summary-mark {
+  display: grid;
+  gap: 0.32rem;
+  max-width: 1.8in;
+  padding-left: 0.72rem;
+  border-left: 1px solid var(--line);
+  font-size: 0.68rem;
+  color: var(--soft);
+}
+
+.summary-mark strong {
+  color: var(--ink);
+  font-size: 0.75rem;
+  line-height: 1.2;
+  font-family: var(--serif);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
 
 h1 + p {
   color: var(--accent);

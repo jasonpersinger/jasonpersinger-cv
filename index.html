@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jason Persinger | Resume</title>
   <link rel="canonical" href="https://jasonpersinger.cv">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
   <style>
     @font-face {
       font-family: "MartianMono";
@@ -38,6 +41,8 @@
       --accent-soft: rgba(181, 90, 42, 0.16);
       --green: #4ade80;
       --shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+      --serif: "MartianMono", "Consolas", "Liberation Mono", monospace;
+      --sans: "Inter", system-ui, -apple-system, sans-serif;
     }
 
     * {
@@ -54,7 +59,7 @@
     html {
       background: var(--bg);
       color: var(--ink);
-      font-family: "MartianMono", "Consolas", "Liberation Mono", monospace;
+      font-family: var(--sans);
       font-size: 13px;
       line-height: 1.5;
       -webkit-print-color-adjust: exact;
@@ -96,6 +101,7 @@
       gap: 0.75rem;
       font-size: 0.78rem;
       color: var(--muted);
+      font-family: var(--serif);
     }
 
     .toolbar-note {
@@ -172,21 +178,24 @@
     }
 
     .header {
-      display: grid;
-      grid-template-columns: minmax(0, 1.7fr) minmax(14rem, 1fr);
-      gap: 1rem;
-      align-items: end;
       padding-bottom: 0.22in;
       border-bottom: 2px solid var(--line);
+      margin-bottom: 0.2in;
     }
 
     .eyebrow,
     .section-title,
     .minor-title,
     .project-kicker,
-    .footer {
+    .footer,
+    .summary-mark strong,
+    .role-title,
+    .role-date,
+    .chip,
+    .stack span {
+      font-family: var(--serif);
       text-transform: uppercase;
-      letter-spacing: 0.22em;
+      letter-spacing: 0.12em;
     }
 
     .eyebrow {
@@ -196,6 +205,7 @@
     }
 
     h1 {
+      font-family: var(--serif);
       font-size: 2.5rem;
       line-height: 0.96;
       letter-spacing: -0.045em;
@@ -212,22 +222,24 @@
     .contact {
       display: grid;
       gap: 0.28rem;
-      justify-items: end;
       color: var(--muted);
       font-size: 0.76rem;
-      text-align: right;
     }
 
     .contact strong {
       color: var(--ink);
       font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-family: var(--serif);
+      font-size: 0.65rem;
     }
 
     .summary {
-      margin: 0.2in 0 0.18in;
+      margin: 0.1in 0 0.18in;
       display: grid;
       grid-template-columns: 1fr auto;
-      gap: 0.85rem;
+      gap: 1.5rem;
       align-items: start;
       padding: 0.13in 0;
       border-bottom: 1px solid var(--line);
@@ -237,13 +249,12 @@
       color: var(--muted);
       font-size: 0.82rem;
       line-height: 1.52;
-      max-width: 6.15in;
     }
 
     .summary-mark {
       display: grid;
       gap: 0.32rem;
-      min-width: 1.8in;
+      max-width: 1.8in;
       padding-left: 0.72rem;
       border-left: 1px solid var(--line);
       font-size: 0.68rem;
@@ -251,15 +262,15 @@
     }
 
     .summary-mark strong {
-      color: var(--green);
-      font-size: 0.9rem;
-      letter-spacing: -0.02em;
+      color: var(--ink);
+      font-size: 0.75rem;
+      line-height: 1.2;
     }
 
     .content {
       display: grid;
-      grid-template-columns: minmax(0, 1.58fr) minmax(2.1in, 0.92fr);
-      gap: 0.22in;
+      grid-template-columns: 7fr 3fr;
+      gap: 0.35in;
       margin-top: 0.16in;
     }
 
@@ -635,36 +646,27 @@
   </div>
 
   <main class="sheet">
-    <header class="header">
-      <div>
-        <div class="eyebrow">Jason Persinger / Support Systems / Technical Communication</div>
-        <h1>Jason Persinger</h1>
-        <p class="headline">
-          Support specialist focused on root-cause analysis, enterprise workflow debugging, technical writing, and high-touch client support across software and IT environments.
-        </p>
-      </div>
-
-      <div class="contact">
-        <div><strong>Base</strong> Roanoke, VA</div>
-        <div><strong>Address</strong> 709 Marshall Ave SW #A, Roanoke, VA 24016</div>
-        <div><strong>Phone</strong> <a href="tel:+15403948222">(540) 394-8222</a></div>
-        <div><strong>Email</strong> <a href="mailto:jason.persinger@gmail.com">jason.persinger@gmail.com</a></div>
-      </div>
-    </header>
-
-    <section class="summary">
-      <p class="summary-copy">
-        Support specialist with 5+ years resolving complex software issues, debugging enterprise workflows, and delivering high-touch support across diverse user types. Strong written communicator with a track record of building documentation, training resources, and scalable processes.
-      </p>
-      <div class="summary-mark">
-        <div>Focus</div>
-        <strong>Support + systems thinking</strong>
-        <div>Strength in translating technical complexity into usable process.</div>
-      </div>
-    </section>
-
     <div class="content">
       <div>
+        <header class="header">
+          <div class="eyebrow">Jason Persinger / Support Systems / Technical Communication</div>
+          <h1>Jason Persinger</h1>
+          <p class="headline">
+            Support specialist focused on root-cause analysis, enterprise workflow debugging, technical writing, and high-touch client support across software and IT environments.
+          </p>
+        </header>
+
+        <section class="summary">
+          <p class="summary-copy">
+            Support specialist with 5+ years resolving complex software issues, debugging enterprise workflows, and delivering high-touch support across diverse user types. Strong written communicator with a track record of building documentation, training resources, and scalable processes.
+          </p>
+          <div class="summary-mark">
+            <div>Focus</div>
+            <strong>Support + Systems Thinking</strong>
+            <div>Translating technical complexity into usable process.</div>
+          </div>
+        </section>
+
         <section class="section">
           <div class="section-title">Experience</div>
           <div class="timeline">
@@ -767,6 +769,16 @@
       </div>
 
       <aside class="sidebar">
+        <section class="panel">
+          <div class="minor-title">Contact</div>
+          <div class="contact">
+            <div><strong>Base</strong> Roanoke, VA</div>
+            <div><strong>Address</strong> 709 Marshall Ave SW #A, Roanoke, VA 24016</div>
+            <div><strong>Phone</strong> <a href="tel:+15403948222">(540) 394-8222</a></div>
+            <div><strong>Email</strong> <a href="mailto:jason.persinger@gmail.com">jason.persinger@gmail.com</a></div>
+          </div>
+        </section>
+
         <section class="panel">
           <div class="minor-title">Core Competencies</div>
           <div class="chips">
