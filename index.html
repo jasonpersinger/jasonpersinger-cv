@@ -294,20 +294,40 @@
 
     .timeline {
       display: grid;
-      gap: 0.12in;
+      gap: 1.4rem;
+      position: relative;
+      padding-left: 1.2rem;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 0.12rem;
+      top: 0.35rem;
+      bottom: 0.35rem;
+      width: 1px;
+      background: var(--line);
     }
 
     .role {
       display: grid;
-      gap: 0.04in;
-      padding-bottom: 0.12in;
-      border-bottom: 1px solid rgba(36, 33, 29, 0.08);
+      gap: 0.18rem;
+      position: relative;
       break-inside: avoid;
     }
 
-    .role:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
+    .role::before {
+      content: "";
+      position: absolute;
+      left: calc(-1.2rem + 0.12rem);
+      top: 0.38rem;
+      width: 7px;
+      height: 7px;
+      background: var(--bg);
+      border: 1px solid var(--accent);
+      border-radius: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
     }
 
     .role-head {
@@ -320,29 +340,23 @@
     .role-title {
       font-size: 0.98rem;
       line-height: 1.15;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.35rem;
-      align-items: baseline;
-    }
-
-    .role-title strong {
       font-weight: 700;
     }
 
-    .role-title span {
-      color: var(--accent);
-    }
-
     .role-date {
-      color: var(--green);
+      color: var(--accent);
       font-size: 0.74rem;
       white-space: nowrap;
     }
 
     .role-meta {
-      color: var(--soft);
-      font-size: 0.69rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-family: var(--serif);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      align-items: center;
     }
 
     .role ul {
@@ -672,13 +686,12 @@
           <div class="timeline">
             <article class="role">
               <div class="role-head">
-                <div class="role-title">
-                  <strong>Owner &amp; Operator</strong>
-                  <span>Pixel Patcher</span>
-                </div>
+                <div class="role-title">Owner &amp; Operator</div>
                 <div class="role-date">2025 - Present</div>
               </div>
-              <div class="role-meta">Roanoke, VA / Mobile PC Repair &amp; IT Consulting</div>
+              <div class="role-meta">
+                <span>Pixel Patcher</span> &bull; Roanoke, VA &bull; Mobile PC Repair &amp; IT Consulting
+              </div>
               <ul>
                 <li>Founded and operate a mobile PC repair business spanning service delivery, client acquisition, scheduling, and pricing.</li>
                 <li>Provide in-home support for residential and SMB clients, adapting to each client&apos;s technical proficiency.</li>
@@ -688,13 +701,12 @@
 
             <article class="role">
               <div class="role-head">
-                <div class="role-title">
-                  <strong>Software Support Analyst</strong>
-                  <span>AbsenceSoft</span>
-                </div>
+                <div class="role-title">Software Support Analyst</div>
                 <div class="role-date">Jan 2023 - Present</div>
               </div>
-              <div class="role-meta">Denver, CO</div>
+              <div class="role-meta">
+                <span>AbsenceSoft</span> &bull; Denver, CO
+              </div>
               <ul>
                 <li>Run root-cause analysis on enterprise leave-management workflows, SSO and integration failures, and client configuration issues.</li>
                 <li>Author runbooks, user guides, and workflow diagrams that reduce repeat contacts and speed onboarding.</li>
@@ -704,13 +716,12 @@
 
             <article class="role">
               <div class="role-head">
-                <div class="role-title">
-                  <strong>Support Team Lead</strong>
-                  <span>Binance.US</span>
-                </div>
+                <div class="role-title">Support Team Lead</div>
                 <div class="role-date">Jul 2021 - Dec 2022</div>
               </div>
-              <div class="role-meta">San Francisco, CA</div>
+              <div class="role-meta">
+                <span>Binance.US</span> &bull; San Francisco, CA
+              </div>
               <ul>
                 <li>Led a support team handling escalated cases on a complex crypto platform and improved CSAT and resolution time.</li>
                 <li>Built foundational knowledge-base and onboarding resources, including compliance training for mixed proficiency levels.</li>
@@ -720,13 +731,12 @@
 
             <article class="role">
               <div class="role-head">
-                <div class="role-title">
-                  <strong>Implementation Project Manager</strong>
-                  <span>PowerSchool</span>
-                </div>
+                <div class="role-title">Implementation Project Manager</div>
                 <div class="role-date">Dec 2019 - Jun 2021</div>
               </div>
-              <div class="role-meta">Roanoke, VA</div>
+              <div class="role-meta">
+                <span>PowerSchool</span> &bull; Roanoke, VA
+              </div>
               <ul>
                 <li>Led K-12 software implementations end-to-end, including needs assessment, configuration, training, and post-launch support.</li>
                 <li>Troubleshot SaaS integrations and configuration issues in partnership with engineering.</li>
