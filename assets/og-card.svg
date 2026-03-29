@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Terminal style social card for Jason Persinger">
+  <defs>
+    <linearGradient id="panel" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#101710"/>
+      <stop offset="100%" stop-color="#0d140d"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#0a0f0a"/>
+  <rect x="56" y="56" width="1088" height="518" fill="url(#panel)" stroke="#6dff8f" stroke-opacity=".3"/>
+  <rect x="74" y="74" width="1052" height="482" fill="none" stroke="#6dff8f" stroke-opacity=".18" stroke-dasharray="8 7"/>
+  <text x="96" y="130" fill="#6dff8f" font-family="Courier New, monospace" font-size="30" letter-spacing="3">system://resume node=jp status=online</text>
+  <text x="96" y="262" fill="#98ffad" font-family="Courier New, monospace" font-size="76" font-weight="700">Jason Persinger</text>
+  <text x="96" y="330" fill="#ffb000" font-family="Courier New, monospace" font-size="32">support systems specialist / technical communicator / operator</text>
+  <text x="96" y="414" fill="#d9ffd9" font-family="Courier New, monospace" font-size="28">Untangles messy software problems, documents the fix, and builds</text>
+  <text x="96" y="454" fill="#d9ffd9" font-family="Courier New, monospace" font-size="28">support workflows people can actually use.</text>
+  <text x="96" y="532" fill="#7df9ff" font-family="Courier New, monospace" font-size="28">&gt; about   &gt; experience   &gt; projects   &gt; contact</text>
+</svg>
